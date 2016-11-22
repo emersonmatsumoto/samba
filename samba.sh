@@ -63,6 +63,7 @@ share() { local share="$1" path="$2" browsable=${3:-yes} ro=${4:-yes} \
     echo "   guest ok = $guest" >>$file
     echo "   writable = $writable" >>$file
     echo "   public=yes" >>$file
+    echo "   map archive = no" >>$file
     [[ ${users:-""} && ! ${users:-""} =~ all ]] &&
         echo "   valid users = $(tr ',' ' ' <<< $users)" >>$file
     [[ ${admins:-""} && ! ${admins:-""} =~ none ]] &&
