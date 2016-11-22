@@ -9,7 +9,7 @@ RUN export DEBIAN_FRONTEND='noninteractive' && \
     mkdir -m 777 /shared && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/*
-COPY samba.smb /etc/samba/
+COPY smb.conf /etc/samba/
 
 EXPOSE 137/udp 138/udp 139 445
 
