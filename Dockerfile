@@ -5,7 +5,7 @@ MAINTAINER David Personette <dperson@gmail.com>
 RUN export DEBIAN_FRONTEND='noninteractive' && \
     apt-get update -qq && \
     apt-get install -qqy --no-install-recommends procps samba \
-                $(apt-get -s dist-upgrade|awk '/^Inst.*ecurity/ {print $2}')
+                $(apt-get -s dist-upgrade|awk '/^Inst.*ecurity/ {print $2}') && \
     mkdir -m 777 /shared && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/*
