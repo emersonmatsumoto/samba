@@ -48,11 +48,12 @@ perms() { local i file=/etc/samba/smb.conf
 #   browsable) 'yes' or 'no'
 #   readonly) 'yes' or 'no'
 #   guest) 'yes' or 'no'
+#   writable) 'yes' or 'no'
 #   users) list of allowed users
 #   admins) list of admin users
 # Return: result
 share() { local share="$1" path="$2" browsable=${3:-yes} ro=${4:-yes} \
-                guest=${5:-yes} users=${6:-""} admins=${7:-""} \
+                guest=${5:-yes} writable=${6:-yes} users=${7:-""} admins=${8:-""} \
                 file=/etc/samba/smb.conf
     sed -i "/\\[$share\\]/,/^\$/d" $file
     echo "[$share]" >>$file
@@ -60,6 +61,7 @@ share() { local share="$1" path="$2" browsable=${3:-yes} ro=${4:-yes} \
     echo "   browsable = $browsable" >>$file
     echo "   read only = $ro" >>$file
     echo "   guest ok = $guest" >>$file
+    echo "   writable = $writable" >>$file
     [[ ${users:-""} && ! ${users:-""} =~ all ]] &&
         echo "   valid users = $(tr ',' ' ' <<< $users)" >>$file
     [[ ${admins:-""} && ! ${admins:-""} =~ none ]] &&
@@ -123,6 +125,7 @@ Options (fields in '[]' are optional, '<>' are required):
                 [browsable] default:'yes' or 'no'
                 [readonly] default:'yes' or 'no'
                 [guest] allowed default:'yes' or 'no'
+                [writable] default:'yes' or 'no'
                 [users] allowed default:'all' or list of allowed users
                 [admins] allowed default:'none' or list of admin users
     -t \"\"       Configure timezone

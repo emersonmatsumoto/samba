@@ -42,6 +42,7 @@ OR set local storage:
                     [browsable] default:'yes' or 'no'
                     [readonly] default:'yes' or 'no'
                     [guest] allowed default:'yes' or 'no'
+                    [writable] default:'yes' or 'no'
                     [users] allowed default:'all' or list of allowed users
                     [admins] allowed default:'none' or list of admin users
         -t ""       Configure timezone
