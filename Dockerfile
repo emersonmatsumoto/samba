@@ -11,9 +11,6 @@ RUN export DEBIAN_FRONTEND='noninteractive' && \
     sed -i 's|^\(   unix password sync = \).*|\1no|' /etc/samba/smb.conf && \
     sed -i '/Share Definitions/,$d' /etc/samba/smb.conf && \
     echo '   security = user' >>/etc/samba/smb.conf && \
-    echo '   directory mask = 0775' >>/etc/samba/smb.conf && \
-    echo '   force create mode = 0664' >>/etc/samba/smb.conf && \
-    echo '   force directory mode = 0775' >>/etc/samba/smb.conf && \
     echo '   force user = smbuser' >>/etc/samba/smb.conf && \
     echo '   force group = users' >>/etc/samba/smb.conf && \
     echo '   load printers = no' >>/etc/samba/smb.conf && \
