@@ -17,8 +17,6 @@ RUN export DEBIAN_FRONTEND='noninteractive' && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/*
 
-VOLUME ["/etc/samba"]
-
 EXPOSE 137/udp 138/udp 139 445
 
-ENTRYPOINT ["samba.sh"]
+ENTRYPOINT ["service samba start"]
