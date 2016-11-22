@@ -13,4 +13,4 @@ COPY smb.conf /etc/samba/
 
 EXPOSE 137/udp 138/udp 139 445
 
-ENTRYPOINT ["service samba restart"]
+ENTRYPOINT ["service smbd restart"]
