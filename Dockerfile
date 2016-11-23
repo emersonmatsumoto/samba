@@ -10,7 +10,8 @@ RUN export DEBIAN_FRONTEND='noninteractive' && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/*
 COPY smb.conf /etc/samba/
+COPY start.sh /start.sh
 
 EXPOSE 137/udp 138/udp 139 445
 
-ENTRYPOINT ["service", "smbd", "start"]
+ENTRYPOINT ["/start.sh"]
