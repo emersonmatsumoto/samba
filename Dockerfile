@@ -1,5 +1,5 @@
 FROM debian:stretch
-MAINTAINER David Personette <dperson@gmail.com>
+MAINTAINER Emerson Matsumoto <japinha02@gmail.com>
 
 # Install samba
 RUN export DEBIAN_FRONTEND='noninteractive' && \

@@ -1,4 +1,4 @@
 #!/bin/bash
 
 service smbd start
-tail -f /var/log/dmesg
+tail -F /var/log/dmesg
