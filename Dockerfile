@@ -14,6 +14,6 @@ COPY start.sh /start.sh
 
 EXPOSE 137/udp 138/udp 139 445
 
-RUN chmod +x /entrypoint.sh
+RUN chmod +x /start.sh
 
 ENTRYPOINT ["/start.sh"]
